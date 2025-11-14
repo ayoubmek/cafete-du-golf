@@ -584,6 +584,42 @@ tns({
 		});
 	});
 	</script>
+  <script>
+document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
+<script>
+document.onkeydown = function(e) {
+    if (e.keyCode == 123) { // F12
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 67)) { 
+        return false; // Ctrl+Shift+I or Ctrl+Shift+C
+    }
+    if (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83)) {
+        return false; // Ctrl+U (view source), Ctrl+S (save)
+    }
+};
+</script>
+
+<script>
+setInterval(function() {
+    const start = performance.now();
+    debugger;
+    if (performance.now() - start > 200) {
+        location.reload();
+    }
+}, 500);
+</script>
+
+<script>
+document.addEventListener("contextmenu", e => e.preventDefault());
+document.onkeydown = e => {
+    if (e.keyCode == 123) return false; // F12
+    if (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 67)) return false; 
+    if (e.ctrlKey && (e.keyCode == 85)) return false; // CTRL+U
+};
+</script>
+
 	<script src="assets/plugins/global/plugins.bundle.js"></script>
 	<script src="assets/js/scripts.bundle.js"></script>
 	</body>
